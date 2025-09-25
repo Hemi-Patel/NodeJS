@@ -1,0 +1,41 @@
+body {
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.sidebar {
+    min-height: 88vh ;
+    box-shadow: 0 0 10px;
+}
+
+.main {
+    min-height: 88vh;
+    box-shadow: 0 0 10px;
+}
+
+.view {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+.view h1 {
+    font-size: 26px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.view img {
+    border-radius: 12px;
+    margin-bottom: 20px;
+}

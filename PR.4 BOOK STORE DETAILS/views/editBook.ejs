@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>edit Book</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <h1>My Header</h1>
+            </div>
+        </div>
+    </header>
+    <section class="mt-2">
+        <div class="container-fluid">
+            <div class="row d-flex">
+                <%- include('sidebar') %>
+                    <div class="col-md-9">
+                        <div class="main bg-white p-3">
+                            <div class="form">
+                                <div class="h-100vh">
+                                    <h2 class="mb-5">Edit Book</h2>
+                                    <form action="/updateBook?bookId=<%= bookid %>" method="POST"
+                                        enctype="multipart/form-data">
+                                        <input type="hidden" name="bookId" value="<%=bookid%>">
+                                        <div class="mb-3">
+                                            <input type="file" name="image">
+                                            <img src="<%=objBook.image%>" alt="" width="200">
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Title</label>
+                                                <input type="text" name="title" class="form-control w-50"
+                                                    value="<%=objBook.title%>">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Author</label>
+                                                <input type="text" name="author" class="form-control w-50"
+                                                    value="<%=objBook.author%>">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">Select Genre</label>
+                                            <div class="row">
+                                                <div class="col-md-3 col-6">
+                                                    <input type="checkbox" name="gener" value="Novel"
+                                                        <%=objBook.gener.includes( "Novel" ) ? "checked" : "" %> >
+                                                    <label for="novel">Novel</label>
+                                                </div>
+                                                <div class="col-md-3 col-6">
+                                                    <input type="checkbox" name="gener" value="Motivation"
+                                                        <%=objBook.gener.includes( "Motivation" ) ? "checked" : "" %> >
+                                                    <label for="motivation">Motivation</label>
+                                                </div>
+                                                <div class="col-md-3 col-6">
+                                                    <input type="checkbox" name="gener" value="Mythological"
+                                                        <%=objBook.gener.includes( "Mythological" ) ? "checked" : "" %>
+                                                    >
+                                                    <label for="mythological">Mythological</label>
+                                                </div>
+                                                <div class="col-md-3 col-6">
+                                                    <input type="checkbox" name="gener" value="Story"
+                                                        <%=objBook.gener.includes( "Story" ) ? "checked" : "" %> >
+                                                    <label for="story">Story</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Total Books</label>
+                                                <input type="text" name="total" class="form-control w-50"
+                                                    value="<%= objBook.total%>">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary"> Edit Books</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

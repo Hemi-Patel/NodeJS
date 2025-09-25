@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Add Book</title>
+</head>
+
+<body>
+
+
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <h1>My Header</h1>
+            </div>
+        </div>
+    </header>
+    <section class="mt-2">
+        <div class="container-fluid">
+            <div class="row d-flex">
+                <%- include('sidebar') %>
+                    <div class="col-md-9">
+                        <div class="main bg-white p-3">
+                            <div class="form">
+                                <div class="h-100vh">
+                                    <h2 class="mb-5">Add Book</h2>
+                                    <form action="/saveBook" method="POST" enctype="multipart/form-data">
+
+                                        <div class="mb-3">
+                                            <input type="file" name="image">
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Title</label>
+                                                <input type="text" name="title" class="form-control w-50"
+                                                    placeholder="Enter Book Title">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Author</label>
+                                                <input type="text" name="author" class="form-control w-50"
+                                                    placeholder="Enter Author Name">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">Select Genre</label>
+                                            <div class="row">
+                                                <div class="col-md-3 col-6">
+                                                    <input type="checkbox" name="gener" value="Novel">
+                                                    <label for="novel">Novel</label>
+                                                </div>
+                                                <div class="col-md-3 col-6">
+                                                    <input type="checkbox" name="gener" value="Motivation">
+                                                    <label for="motivation">Motivation</label>
+                                                </div>
+                                                <div class="col-md-3 col-6">
+                                                    <input type="checkbox" name="gener" value="Mythological">
+                                                    <label for="mythological">Mythological</label>
+                                                </div>
+                                                <div class="col-md-3 col-6">
+                                                    <input type="checkbox" name="gener" value="Story">
+                                                    <label for="story">Story</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Total Books</label>
+                                                <input type="text" name="total" class="form-control w-50"
+                                                    placeholder="Enter Total Book ">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary"> Save Books</button>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Add Blog</title>
+</head>
+
+<body>
+    <section class="add-blog d-flex justify-content-center align-items-center">
+        <div class="add-form">
+            <h2>Add Blog</h2>
+            <form action="/createBlog" method="post" enctype="multipart/form-data">
+                <input type="file" name="image">
+                <input type="text" name="title" placeholder="Blog Title">
+                <textarea name="description" placeholder="Write your blog description here..."></textarea>
+                <!-- <input type="text" name="category" placeholder="Category"> -->
+
+                <div>
+                    <input class="checkbox" type="checkbox"  name="category" value="Company Culture">
+                    <lable >Company Culture</lable>
+                </div>
+                <div>
+                    <input class="checkbox" type="checkbox" name="category" value="Communication">
+                    <lable>Communication</lable>
+                </div>
+                <div>
+                    <input class="checkbox" type="checkbox" name="category" value="Facilation">
+                    <lable>Facilation</lable>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+
+</html>

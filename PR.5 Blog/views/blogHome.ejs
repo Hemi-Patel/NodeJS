@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Blog Home</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="col-2">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="add">
+                        <a href="/createBlog"><Button>Add Blog</Button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="serach d-flex justify-content-center align-items-center">
+        <div class="search-box d-flex">
+            <input type="text" placeholder="search">
+            <button>Search</button>
+        </div>
+    </section>
+    <section class="blog">
+        <div class="container">
+            <div class="row flex-wrap">
+                <% blogData.map((v,i)=>{%>
+                    <div class="col-3">
+                        <div class="card">
+                            <div class="image">
+                                <img src="<%=v.image%>" alt="" name="image">
+                            </div>
+                            <div class="info">
+                                <h2>
+                                    <%=v.title%>
+                                </h2>
+                                <p>
+                                    <%= v.description%>
+                                </p>
+                                <ul class="d-flex">
+                                    <%v.category.map((val,index)=>{%>
+                                        <li>
+                                            <%=val%>
+                                        </li>
+                                        <%})%>
+                                </ul>
+                                <a href="/viewBlog/?blogId=<%= v._id %>">
+                                    <button type="button">Read More</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <%})%>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

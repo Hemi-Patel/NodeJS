@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD EJS</title>
+</head>
+
+<body>
+    <h1> Home page</h1>
+
+    <form method="post" action="/addPerson">
+
+        <table border="2" align="center" cellpadding="3">
+            <tr>
+                <td>Enter Name :</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Enter Age :</td>
+                <td><input type="text" name="age"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" name="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <br><br>
+
+
+    <table border="2" align="center">
+
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.map((v,i)=>{ %>
+                <tr>
+                    <td>
+                        <%= ++i %>
+                    </td>
+                    <td>
+                        <%= v.name %>
+                    </td>
+                    <td>
+                        <%= v.age %>
+                    </td>
+                    <td>
+                        <a href="/deletePerson/<%= --i%>"><button>Delete</button></a> ||
+                        <a href="/updatePerson/?pos=<%=i%>"><button>Update</button></a>
+                    </td>
+                </tr>
+                <%}) %>
+        </tbody>
+
+    </table>
+</body>
+
+</html>
