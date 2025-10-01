@@ -1,0 +1,64 @@
+<%- include('../header')%>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+<div class="page-wrapper">
+    <!-- Breadcrumb -->
+    <div class="page-breadcrumb bg-light py-3 shadow-sm">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 fw-bold">Blog Details</h5>
+                <h5><a href="/admin/blog/viewBlog" class="text-dark">View Blogs</a></h5>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Content -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-lg border-0 rounded-3 overflow-hidden">
+                    <!-- Blog Image -->
+                    <img src="<%= BlogRecord.image %>" 
+                         alt="Blog Image" 
+                         class="img-fluid w-100" 
+                         style="max-height: 300px; object-fit: cover;">
+
+                    <!-- Blog Body -->
+                    <div class="card-body p-4">
+                        <h2 class="fw-bold mb-3"><%= BlogRecord.title %></h2>
+                        <p class="text-muted fs-6" style="line-height: 1.8;">
+                            <%= BlogRecord.description %>
+                        </p>
+
+                        <!-- Categories -->
+                        <div class="mt-4">
+                            <h6 class="fw-bold">Categories:</h6>
+                            <ul class="d-flex flex-wrap gap-2 mt-2 list-unstyled">
+                                <% BlogRecord.category.map((category, i) => { %>
+                                    <li>
+                                        <span class="badge bg-warning text-dark px-3 py-2"
+                                              style="font-size: 0.85rem; border-radius: 20px;">
+                                            <%= category %>
+                                        </span>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include('../footer')%>

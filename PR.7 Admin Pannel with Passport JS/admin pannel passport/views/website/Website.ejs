@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Cards</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .navbar {
+      background: #dbcccc !important;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .search-bar {
+      padding: 30px 0;
+      background: #ffffff;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .form-control,
+    select {
+      border-radius: 12px;
+      padding: 10px 14px;
+      border: 1px solid #ced4da;
+    }
+
+    .btn-primary {
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-weight: 500;
+    }
+
+    .card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      border-radius: 20px 20px 0 0;
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: #6c757d;
+    }
+
+    .badge {
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+
+    .read-more {
+      margin-top: auto;
+      border-radius: 12px;
+      padding: 8px 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar bg-info">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary fs-3" href="#">My Blog</a>
+    </div>
+  </nav>
+
+  <!-- Search / Filter Bar -->
+  <div class="search-bar">
+    <div class="container">
+      <form class="row g-3 align-items-center" method="get" action="/website">
+        <div class="col-md-4">
+          <input type="text" name="search" value="<%= typeof search !== 'undefined' ? search : '' %>"
+            class="form-control" placeholder="🔍 Search blog by title...">
+        </div>
+
+        <div class="col-md-4">
+          <select name="filterByCategory" class="form-select" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            <% categories.forEach((v,i)=> { %>
+              <option value="<%= v %>" <%=(filterByCategory===v ? "selected" : "" ) %>>
+                <%= v %>
+              </option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="col-md-4 text-end">
+          <button class="btn btn-primary px-4" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Blog Cards -->
+  <div class="container my-5">
+    <div class="row g-4">
+      <% BlogRecord.map((v, i)=> { %>
+        <div class="col-md-4 d-flex">
+          <div class="card">
+            <img src="<%= v.image %>" alt="Blog Image">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-truncate"><%= v.title %></h5>
+              <p class="card-text"><%= v.description %></p>
+
+              <div class="mt-2 mb-3">
+                <% v.category.map((category, i)=> { %>
+                  <span class="badge bg-warning text-dark me-1"><%= category %></span>
+                <% }) %>
+              </div>
+
+              <a href="/website/singleBlog/<%= v._id %>" class="btn btn-primary read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
