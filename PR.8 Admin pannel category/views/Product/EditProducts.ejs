@@ -1,0 +1,155 @@
+<%- include('../header')%>
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Edit Product Form </h4>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Product</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <form class="form-horizontal" method="post" action="/admin/product/EditProduct/<%=productData._id%>"
+                            enctype="multipart/form-data">
+                            <div class="card-body">
+                                <h4 class="card-title">Products Info</h4>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">
+                                        Product Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="p_name" id="fname"
+                                            value="<%=productData.p_name%>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">
+                                        Product Description</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="description" id="fname"
+                                            value="<%=productData.description%>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">
+                                        Product Price</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" name="price" id="fname"
+                                            value="<%=productData.price%>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">
+                                        Product Quantity</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" name="quantity" id="fname"
+                                            value="<%=productData.quantity%>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">
+                                        Product Image</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control" name="p_image" id="fname"
+                                            placeholder="Product Image Here">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Category
+                                        Name</label>
+                                    <div class="col-sm-9">
+                                        <select name="category" id="category" class="w-100 p-2"
+                                            style="border:1px solid #e9ecef" disabled >
+                                            <option value="--Select Category --">
+                                                <%= productData.category.category%>
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Sub
+                                        Category
+                                        Name</label>
+                                    <div class="col-sm-9">
+                                        <select name="subCategory" class="w-100 p-2" id="subCategory"
+                                            style="border:1px solid #e9ecef" disabled >
+                                            
+                                        <option >
+                                                <%= productData.subCategory.subCategoryName%>
+                                            </option>
+
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Extra
+                                        Sub
+                                        Category
+                                        Name</label>
+                                    <div class="col-sm-9">
+                                        <select name="extraSubcategory" class="w-100 p-2" id="extraSubCategory"
+                                            style="border:1px solid #e9ecef"
+                                            ] disabled>
+                                            <option >
+                                                <%=productData.extraSubcategory.ExtraSubcategoryName%>
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="border-top">
+                                    <div class="card-body">
+                                        <button type="submit" value="Add Product" class="btn btn-primary">Edit
+                                            Product</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- editor -->
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <%- include('../footer')%>
+
+        

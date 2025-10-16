@@ -1,0 +1,47 @@
+<%- include('../header') %>
+    <div style="margin-left: 300px;" class="mt-5">
+        <a href="/admin/product/ViewProduct"><button class="btn btn-primary ">Back To View products</button></a>
+    </div>
+
+    <div class="product my-5">
+
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center  border-0 shadow-sm"
+                style="margin-left: 10px; width: 100%;">
+                <div class="col-md-6">
+                    <img src="<%= product.p_image %>" alt="<%= product.p_name %>" class=" rounded my-4" height="400"
+                        width="400" style="margin-left: 50px;">
+                </div>
+
+                <div class="col-md-6 " style="margin-left: 50px;">
+                    <h3 class="fw-bold mb-3">
+                        <%= product.p_name %>
+                    </h3>
+                    <p class="text-muted">
+                        <%= product.description %>
+                    </p>
+
+                    <h4 class="text-success mb-3">₹ <%= product.price %>
+                    </h4>
+
+                    <p><strong>Available Quantity:</strong>
+                        <%= product.quantity %>
+                    </p>
+
+                    <div class="mb-3">
+                        <span class="badge bg-secondary me-2">
+                            <%= product.category.category %>
+                        </span>
+                        <span class="badge bg-info text-dark">
+                            <%= product.subCategory.subCategoryName %>
+                        </span>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <%- include('../footer') %>
